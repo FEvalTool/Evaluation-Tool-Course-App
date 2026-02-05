@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Typography } from "antd";
 
 const { Paragraph, Title } = Typography;
 
 const DashboardPage = () => {
-    const [message, setMessage] = useState();
+    const [message, _] = useState();
 
     return (
         <>
