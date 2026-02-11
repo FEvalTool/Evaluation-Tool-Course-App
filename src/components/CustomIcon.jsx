@@ -1,14 +1,17 @@
 import PropTypes from "prop-types";
 import Icon from "@ant-design/icons";
 
-import LogoSvg from "../assets/icons/logo_fpt.svg?react";
+import AppLogoSvg from "../assets/icons/app-logo.svg?react";
 
-export const LogoIcon = ({ size }) => (
+export const AppLogo = ({ size, fill }) => (
     <Icon
-        component={() => <LogoSvg style={{ width: size, height: "auto" }} />}
+        component={() => (
+            <AppLogoSvg style={{ width: size, height: "auto", fill: fill }} />
+        )}
     />
 );
 
-LogoIcon.propTypes = {
+AppLogo.propTypes = {
     size: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+    fill: PropTypes.string,
 };
