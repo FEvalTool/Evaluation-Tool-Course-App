@@ -3,11 +3,20 @@ import { Avatar, Button, Flex, Layout, Typography } from "antd";
 import { UserOutlined, LogoutOutlined } from "@ant-design/icons";
 
 import { LogoIcon } from "../components/CustomIcon";
+import authService from "../services/authService";
 
 const { Header } = Layout;
 const { Text } = Typography;
 
 const MainLayout = () => {
+    const handleLogout = async () => {
+        try {
+            await authService.logout();
+            window.location.reload();
+        } catch (error) {
+            console.error("Logout failed:", error);
+        }
+    };
     return (
         <Layout style={{ width: "100vw", height: "100vh" }}>
             <Header
@@ -26,6 +35,7 @@ const MainLayout = () => {
                         shape="circle"
                         icon={<LogoutOutlined />}
                         aria-label="logout"
+                        onClick={handleLogout}
                     />
                     <Flex gap={5} align="center">
                         <Avatar
